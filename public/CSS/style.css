@@ -1,0 +1,477 @@
+ html,body{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #F4F5FF;
+font-family: Arial, sans-serif;
+}
+/********************************* Header,Navigation, and Footer common all pages****************************/
+/*for header user Nav , navigation bar site nav*/
+.userNav{
+ padding-top: 5px;
+ height: 60px;
+}
+ul.siteNav, .userNav ul{
+height: 100%;
+width: 100%;
+list-style-type: none;
+margin: 0;
+padding-left: 2px;
+padding-right: 2px;
+padding-top:0;
+padding-bottom: 0;
+overflow: hidden;
+background-color: #F4F5FF ;
+}
+
+/*making sure userNav is on right side*/
+/*SiteNavigation CSS*/
+ul.siteNav li {float: left;}
+
+ul.siteNav li a, .userNav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+ul.siteNav li a:hover:not(.active) {background-color: black; color:white;}
+
+ul.siteNav li a.active {background-color: black; color: white;}
+
+/*making sure siteNav is on right side to select button*/
+ul.siteNav li.right {float: right;}
+
+/*UserNavigation CSS*/
+.userNav li a:hover:not(.active) {background-color: black; color:white;}
+
+.userNav li a.active {background-color: black; color: white;}
+.userNav li { float:right; }
+
+/*making sure userNav is on left side to select button*/
+.userNav li.left {float: left;}
+.userNav li.logo 
+{
+  float: left;
+}
+
+/*logo animation and logo attributes*/
+.logo{
+  position: absolute;
+  border: 1px solid gray;
+  margin-left: 10px;
+  cursor: pointer;
+  width:60px;
+  height: 60px;
+  animation: comeDown 1s linear 1;
+  animation-delay: 0.5s;
+  visibility: hidden;
+  animation-fill-mode: forwards;
+
+}
+.logo img{
+
+  height: 100%;
+  width: 100%;
+}
+.userNav li.logo a:hover{background-color: #F4F5FF;}
+
+/*logo animation action keyframe*/
+@keyframes comeDown{
+  0%{
+    transform: translateY(-100px);
+    visibility: visible;
+  }
+  100%{
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+/*footer code: applying css to list similar code as header but with changes*/
+ul.siteFooter {
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top:0;
+  padding-bottom: 0;
+  overflow: hidden;
+  background-color: #F8F6F6;
+}
+
+/*making sure userNav is on right side*/
+ul.siteFooter li {float: left;}
+
+ul.siteFooter li a {
+  display: block;
+  color: black;
+  text-align: center;
+  
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+/*use for copyright design*/
+.copyright p{
+  padding:10px 15px;
+  margin:0;
+}
+ul.siteFooter li a:hover:not(.active) {background-color: black; color:white;}
+
+ul.siteFooter li a.active {background-color: black; color: white;}
+
+footer{
+  position: fixed;
+  left:0;
+  bottom:0;
+  width:100%;
+  text-align: center;
+  box-sizing: border-box;
+
+}
+
+/*********************************************Index.html CSS***************************************/
+/*main content area*/
+
+.indexMain{
+  position:  relative;
+  padding: 50px;
+  margin: 0;
+  margin-bottom: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  background-image: url("/images/backGroundwallpaper.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/*to bring the svg down use this class*/
+.svgAnimation{
+  position: relative;
+  margin-top: 12%;
+  margin-left: 0;
+}
+
+svg{
+  font-weight:bold;width:auto;max-height:1800px;
+
+}
+
+@keyframes comeXSide{
+  0%{
+    transform: translateX(-1200px);
+    visibility: visible;
+  }
+  100%{
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
+
+
+.loadingOn{
+ text-anchor: middle;
+ fill-opacity:0.8 ; 
+ animation: comeXSide 1s linear 1;
+ animation-delay: 0.3s;
+ visibility: hidden;
+ animation-fill-mode: forwards;
+ 
+}
+
+.loadingOff{
+ text-anchor: middle;
+ fill-opacity:0.8 ; 
+ animation: comeXSide 1s linear 1;
+ animation-delay: 0.3s;
+ visibility: hidden;
+ animation-fill-mode: forwards;
+ 
+}
+
+.loadingOn1{
+ text-anchor: middle;
+ fill-opacity:0.8 ; 
+ animation: comeXSideOne 1s linear 1;
+ animation-delay: 0.1s;
+ visibility: hidden;
+ animation-fill-mode: forwards;
+
+}
+
+.loadingOff1{
+ text-anchor: middle;
+ fill-opacity:0.5;
+ fill-opacity:0.8 ; 
+ animation: comeXSideOne 1s linear 1;
+ animation-delay: 0.1s;
+ visibility: hidden;
+ animation-fill-mode: forwards;
+}
+@keyframes comeXSideOne{
+  0%{
+    transform: translateX(-1200px);
+    visibility: visible;
+  }
+  100%{
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
+
+
+
+/**************************************Trades.html CSS******************************************/
+/* The CSS of Trades. html*/
+.tradesMain{ 
+  margin-bottom: 10px; 
+  padding-bottom: 100px;
+  align-content: center;
+  text-align: center;
+}
+
+/*grid view headphones*/
+.grid-container-headphones {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+/*grid view laptop*/
+.grid-container-laptop{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+/*each card view*/
+.cardView {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.cardView img{
+  width:100%;
+}
+.cost {
+  color: grey;
+  font-size: 22px;
+}
+
+.cardView a.buttonViewDetails {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.cardView a.buttonViewDetails:hover {
+  opacity: 0.7;
+}
+
+/***************************************************** Trade.html CSS ******************************************************************/
+
+/*trade html css*/
+
+.tradeMain{
+  margin: 0;
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.tradeImage{
+    max-width: 100%;
+  max-height: 100%;
+  display: grid;
+}
+.img-details {
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-details img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.tradeImage {
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.hrdesign { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+.hrdesign:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+.detail{
+  margin:auto;
+  width: 90%;
+  font-size: 18px;
+  max-height: inherit;
+  overflow: hidden;
+}
+.detail h1{
+  font-size: 22px;
+}
+
+.reviewContents{
+  margin: 0px 100px;
+}
+.review{
+  margin: 15px; 
+  padding:20px;
+  height: 100px;
+  font-size: 20px;
+}
+
+.buttonGrid{
+  display: flex;
+  float: left;
+}
+
+.buttonReviewTrade {
+  margin: auto;
+  padding: 12px;
+  background-color: #90ee90;
+  color: black;
+  border-radius: 5px;
+}
+
+.buttonReviewTrade:hover {
+  background-color: #555555;
+  color: white;
+  border-radius: 5px;
+}
+
+.buttonReviewRate{
+  margin: auto;
+  padding: 12px;
+  background-color: lightblue;
+  color: black;
+  border-radius: 5px;
+}
+
+.buttonReviewRate:hover {
+  background-color: #555555;
+  color: white;
+  border-radius: 5px;
+}
+
+
+.a {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 40px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+}
+
+
+
+/*NewTrades Html css*/
+/************************************* NEW Trades.Html CSS ***************************************************/
+/* Taken and referenced from: https://www.w3schools.com/css/tryit.asp?filename=trycss_form_responsive*/
+
+.newTradesMain {
+  box-sizing: border-box;
+  padding: 0%  20%;
+  text-align: left;
+
+}
+.newTrades h1{
+  font-size: 35px;
+  align-content: center;
+  text-align: center;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  float: right;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit]
+{
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover
+{
+  background-color: white;
+  color:black;
+}
+
+.firstColumn{
+  float: left;
+  width: 35%;
+  margin-top: 6.5px;
+}
+
+.secondColumn {
+  float: left;
+  width: 65%;
+  margin-top: 6.5px;
+}
+
+/* Clear floats after the columns */
+.eachRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#details{
+  height:200px;
+}
