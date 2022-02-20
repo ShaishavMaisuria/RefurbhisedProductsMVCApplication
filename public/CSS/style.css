@@ -63,7 +63,7 @@ ul.siteNav li.right {float: right;}
   border: 1px solid gray;
   margin-left: 10px;
   cursor: pointer;
-  width:60px;
+  width:90px;
   height: 60px;
   animation: comeDown 1s linear 1;
   animation-delay: 0.5s;
@@ -240,12 +240,12 @@ svg{
 /*grid view headphones*/
 .grid-container-headphones {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 /*grid view laptop*/
 .grid-container-laptop{
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 /*each card view*/
@@ -253,6 +253,7 @@ svg{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
+  margin-top: 20px;
   text-align: center;
   font-family: arial;
 }

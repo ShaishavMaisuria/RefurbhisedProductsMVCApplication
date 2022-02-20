@@ -2,58 +2,30 @@
 <article class="tradesMain" >
    
    
-    <% if(trades[0].length){ %> 
-
-        <!-- <h1> Refurbished  <%= trades %> </h1> -->
-        <div class="headphonesGrid">
-            <div class="grid-container-headphones">
-        
-        <%  trades[0].forEach(trade=>{ %>
-                <div class="cardView">
-                    <img src="<%=trade.image %>" alt="<%= trade.name %>" >
-					<h1><%= trade.name %></h1>
-					<p class="cost">$<%= trade.cost %></p>
-					<p>Some text about the Airpods..</p>
-					
-                    <p class="detailTrade"><a href="trade.html" class="buttonViewDetails" > View Details</a> </p>
-                
-                </div>
-        
-       <% }); %>
-</div>
-</div> 
-<% }else{ %>
-            <p> There are no stories to display. </p>
-    
-        <%  } %>
-<br>
-    <h1> Refurbished laptop </h1>
+ 
     
   
-    <% if(trades[1].length){ %> 
+    <% for(var i in trades){ %>
 
-        <!-- <h1> Refurbished  <%= trades %> </h1> -->
+        <h1> Refurbished <%= i %> </h1>
         <div class="headphonesGrid">
             <div class="grid-container-headphones">
         
-        <%  trades[1].forEach(trade=>{ %>
+        <%  trades[i].forEach(trade=>{ %>
                 <div class="cardView">
                     <img src="<%=trade.image %>" alt="<%= trade.name %>" >
 					<h1><%= trade.name %></h1>
 					<p class="cost">$<%= trade.cost %></p>
 					<p>Some text about the Airpods..</p>
 					
-                    <p class="detailTrade"><a href="trade.html" class="buttonViewDetails" > View Details</a> </p>
+                    <p class="detailTrade"><a href="/trades/<%= i %>/<%= trade.id %>" class="buttonViewDetails" > View Details</a> </p>
                 
                 </div>
         
        <% }); %>
 </div>
 </div> 
-<% }else{ %>
-            <p> There are no stories to display. </p>
-    
-        <%  } %>
+    <%}%>
 </article>
     <%- include('../partials/footer.ejs')%>
 

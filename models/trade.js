@@ -2,7 +2,8 @@ const res = require("express/lib/response");
 const { DateTime } = require("luxon");
 const {v4:uuidv4} = require('uuid');
 
-const trades=[ [
+const trades={ 
+   'Headphones': [
     {
         id:'1',
         name: 'Airpods',
@@ -76,7 +77,7 @@ const trades=[ [
         cost: '0.99'
     }
 ],
-[
+'Laptop': [
     {
         id:'2.1',
         name: 'HP',
@@ -90,7 +91,7 @@ const trades=[ [
         cost: '9.99'
     },
     {
-        id:'2.1',
+        id:'2.2',
         name: 'HP',
         category: 'Laptop',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
@@ -101,11 +102,11 @@ const trades=[ [
         condition:'Used',
         cost: '9.99'
     }
-]];
+]};
 
 exports.find=()=> trades;
 
-exports.findById=id => trades.find(trade=> trade.id===id);
+exports.findById=(category,id)=> trades[category].find(trade=>trade.id===id);
 
 exports.save=function(trade){
     trade.id=uuidv4();
