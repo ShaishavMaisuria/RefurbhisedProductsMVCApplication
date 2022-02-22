@@ -309,8 +309,9 @@ svg{
 }
 
 .img-details img{
-  max-width: 100%;
-  max-height: 100%;
+  width: 300px;
+  height: 300px;
+  
 }
 .tradeImage {
   max-width: 100%;
@@ -365,6 +366,8 @@ svg{
 
 .buttonReviewTrade {
   margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 12px;
   background-color: #90ee90;
   color: black;

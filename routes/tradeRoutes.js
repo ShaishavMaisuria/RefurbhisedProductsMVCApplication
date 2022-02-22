@@ -8,5 +8,10 @@ router.get('/',controller.index);
 
 router.get('/:category/:id',controller.show);
 
+// get from new trade
+router.get('/newTrade',controller.new);
 
+// post /trades: create new trade
+
+router.post('/',controller.create);
 module.exports=router;

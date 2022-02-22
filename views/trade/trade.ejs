@@ -1,21 +1,42 @@
 <%- include('../partials/header.ejs')%>
-<article class="tradesMain" >
-   
-   
-    <% if(trades[0].length){ %> 
+<article>
+    <div class="tradeMain">
 
-        <!-- <h1> Refurbished  <%= trades %> </h1> -->
-        <div class="headphonesGrid">
-            <div class="grid-container-headphones">
-        
-       <% }); %>
-</div>
-</div> 
-<% }else{ %>
-            <p> There are no stories to display. </p>
+        <div class="img-details">
+            <div class="tradeImage">
+            <img src="/images/<%= trade.image %>" alt="airpodsMax">
+            </div>
+
+            <h1 id="TradeName"> <%= trade.name %></h1>
+            <h3> by <%= trade.company %> </h3>
+                <hr class="hrdesign"> 
+            <div class="detail"> <h1> Details</h1> <p> 
+                <%= trade.details %>
+            </p></div>
+
+        </div>
+
+        <div class="reviewContents">
+
+            <div class="review"> 
+                Are you interested in the <%= trade.category%> ?
+                <br>
+                <br>
+                <div class="buttonGrid">
+                    <a href="trades.html" class="buttonReviewTrade"> Trade it </a>
+                    <a href="trades.html" class="buttonReviewRate"> Rate it </a>
+                </div>
+                <br>
+                <br>
+            </div>
+
+            <div class="detail">
+
+            </div>
+        </div>
+
+    </div>
+
     
-        <%  } %>
-<br>
-
 </article>
 <%- include('../partials/footer.ejs')%>

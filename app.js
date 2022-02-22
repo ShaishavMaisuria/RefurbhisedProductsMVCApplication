@@ -9,7 +9,7 @@ const res = require('express/lib/response');
 
 
 // configure app
-let port =8080;
+let port =3000;
 let host = 'localhost';
 app.set('view engine', 'ejs');
 
@@ -27,6 +27,13 @@ app.get("/",(req,res)=>{
 
 app.use('/trades',tradeRoutes);
 
+app.get("/about",(req,res)=>{
+    res.render('./others/about');
+});
+
+app.get("/contact",(req,res)=>{
+    res.render('./others/contact');
+});
 
 app.use((req,res,next)=>{
 

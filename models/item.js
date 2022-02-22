@@ -10,11 +10,12 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/airpodsMax.jpg',
+        image: 'airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
-        cost: '9.99'
+        cost: '9.99',
+        company: 'apple'
     },
     {
         id:'2',
@@ -22,11 +23,12 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/beats.png',
+        image: 'beats.png',
         author: 'Tony Stark',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'New',
-        cost: '0.99'
+        cost: '0.99',
+        company: 'Beats'
     },
     {
         id:'3',
@@ -34,11 +36,12 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/airpodsMax.jpg',
+        image: 'airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
-        cost: '9.99'
+        cost: '9.99',
+        company: 'apple'
     },
     {
         id:'4',
@@ -46,11 +49,12 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/beats.png',
+        image: 'beats.png',
         author: 'Tony Stark',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'New',
-        cost: '0.99'
+        cost: '0.99',
+        company: 'beats'
     },
     {
         id:'5',
@@ -58,11 +62,12 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/airpodsMax.jpg',
+        image: 'airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
-        cost: '9.99'
+        cost: '9.99',
+        company: 'apple'
     },
     {
         id:'6',
@@ -70,37 +75,40 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/beats.png',
+        image: 'beats.png',
         author: 'Tony Stark',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'New',
-        cost: '0.99'
+        cost: '0.99',
+        company: 'beats'
     }
 ],
 'Laptop': [
     {
         id:'2.1',
-        name: 'HP',
+        name: 'HP Nexus',
         category: 'Laptop',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/lenovo.jpg',
+        image: 'lenovo.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
-        cost: '9.99'
+        cost: '9.99',
+        company: 'HP'
     },
     {
         id:'2.2',
-        name: 'HP',
+        name: 'ThinkPad',
         category: 'Laptop',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: '/images/hp.jpg',
+        image: 'hp.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
-        cost: '9.99'
+        cost: '9.99',
+        company: 'Lenovo'
     }
 ]};
 
@@ -108,8 +116,33 @@ exports.find=()=> trades;
 
 exports.findById=(category,id)=> trades[category].find(trade=>trade.id===id);
 
+let flag= function(category){
+  
+    for(let val in trades){
+        console.log("value inside the looop "+val + " trades.length "+trades.category);
+        if (val === category){
+            return true;
+        }
+    }
+    return false;
+}
 exports.save=function(trade){
+
+    console.log('flag'+flag(trade.category));
+    if(flag(trade.category)){
     trade.id=uuidv4();
     trade.createdOn=DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
-    trades.push(trade);
+    let productList=trades[trade.category];
+    
+    productList.push(trade);
+    // trades[trade.category].push(trade);
+    console.log("trade Value from item.js"+trades);
+        
+    }else{
+        trade.id=uuidv4();
+        trade.createdOn=DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
+        trades[trade.category]=[trade];
+        console.log("trade Value from item.js"+trades);
+    }
+        
 };

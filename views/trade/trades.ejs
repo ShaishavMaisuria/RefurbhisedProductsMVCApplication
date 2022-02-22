@@ -2,10 +2,7 @@
 <article class="tradesMain" >
    
    
- 
-    
-  
-    <% for(var i in trades){ %>
+ <% for(var i in trades){ %>
 
         <h1> Refurbished <%= i %> </h1>
         <div class="headphonesGrid">
@@ -13,11 +10,10 @@
         
         <%  trades[i].forEach(trade=>{ %>
                 <div class="cardView">
-                    <img src="<%=trade.image %>" alt="<%= trade.name %>" >
+                    <img src="/images/<%=trade.image %>" alt="<%= trade.name %>" >
 					<h1><%= trade.name %></h1>
 					<p class="cost">$<%= trade.cost %></p>
 					<p>Some text about the Airpods..</p>
-					
                     <p class="detailTrade"><a href="/trades/<%= i %>/<%= trade.id %>" class="buttonViewDetails" > View Details</a> </p>
                 
                 </div>
