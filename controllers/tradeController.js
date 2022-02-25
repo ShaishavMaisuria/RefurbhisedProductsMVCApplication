@@ -1,6 +1,6 @@
 const model =require('../models/item');
 
-// GET /stories: send all stories
+// GET /stories: send all stories main page  //name change
 exports.index=(req,res)=>{
 
     
@@ -11,12 +11,12 @@ exports.index=(req,res)=>{
     // res.send('send all trades');
 };
 
-
+// Each category trade.html
 exports.show=(req,res,next)=>{
     let id = req.params.id;
     let category= req.params.category;
     
-    console.log("id "+id+"category"+category);
+    // console.log("id "+id+"category"+category);
     let trade = model.findById(category,id);
     if(trade){
     res.render('./trade/trade',{trade});
@@ -26,20 +26,18 @@ exports.show=(req,res,next)=>{
         next(err);
     }
 };
-exports.new = (req,res)=>{
 
-    res.render('./trade/newTrade');
-
-    // res.send('send all trades');
-};
 
 // POST /stories: create a new story
 exports.create=(req,res)=>{
 
     // res.send("create a new story");
     let story = req.body;
+    let category='Laptop';
     model.save(story);
-    // console.log(story);
+    
+    // model.updateByCategoryID(story);
+    
     res.redirect('/trades');
 };
 

@@ -1,7 +1,8 @@
 // Require modules import here
 const express = require('express');
 const morgan = require("morgan");
-const tradeRoutes = require('./routes/tradeRoutes')
+const tradeRoutes = require('./routes/tradeRoutes');
+const mainRoutes = require('./routes/mainRoutes');
 // create app
 const app = express();
 const methodOverride = require('method-override');
@@ -19,21 +20,13 @@ app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
-
-// set up routes
-app.get("/",(req,res)=>{
-    res.render('index');
-});
-
 app.use('/trades',tradeRoutes);
 
-app.get("/about",(req,res)=>{
-    res.render('./others/about');
-});
+// set up routes
+app.use("/",mainRoutes);
 
-app.get("/contact",(req,res)=>{
-    res.render('./others/contact');
-});
+
+
 
 app.use((req,res,next)=>{
 

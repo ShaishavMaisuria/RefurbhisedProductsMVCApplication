@@ -9,7 +9,7 @@ const trades={
         name: 'Airpods',
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-        status: 'sale',
+        status: 'available',
         image: 'airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
@@ -116,7 +116,7 @@ exports.find=()=> trades;
 
 exports.findById=(category,id)=> trades[category].find(trade=>trade.id===id);
 
-let flag= function(category){
+exports.containsCategory=(category)=>{
   
     for(let val in trades){
         console.log("value inside the looop "+val + " trades.length "+trades.category);
@@ -128,21 +128,69 @@ let flag= function(category){
 }
 exports.save=function(trade){
 
-    console.log('flag'+flag(trade.category));
-    if(flag(trade.category)){
+    // console.log('flag'+flag(trade.category));
+    if(this.containsCategory(trade.category)){
     trade.id=uuidv4();
     trade.createdOn=DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
     let productList=trades[trade.category];
     
     productList.push(trade);
     // trades[trade.category].push(trade);
-    console.log("trade Value from item.js"+trades);
+    console.log("trade Value from item.js"+trades.Laptop);
         
     }else{
         trade.id=uuidv4();
         trade.createdOn=DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
         trades[trade.category]=[trade];
         console.log("trade Value from item.js"+trades);
+    }
+        
+};
+
+exports.deleteByCategoryID=function(category,id){
+    // category=deleteTrade.category;
+    if(this.containsCategory(category)){
+        let index=trades[category].findIndex(trade=>trade.id===id);
+        console.log("Baby shark dudu dududu ********" + index);
+        if(index!== -1){
+            trades[category].splice(index,1);
+            console.log("trades delete" +trades);
+            return true
+        }
+
+    console.log("trade Value from item.js"+trades);
+        return false;
+    }else{
+        return false;
+    }
+        
+};
+//update manually check through inputs and from live form;
+exports.updateByCategoryID=function(changedTrade){
+    let id = "2.2";
+
+    if(this.containsCategory(changedTrade.category)){
+        let trade=trades[changedTrade.category].find(trade=>trade.id===id);
+
+        if(trade){
+            
+        trade.name=      changedTrade.name;
+        trade.category=   changedTrade.category;
+        trade.details=    changedTrade.details;
+        trade.status=     changedTrade.status;
+        trade.image=      changedTrade.image;
+        trade.author=      changedTrade.author;
+        trade.condition=   changedTrade.condition;
+        trade.cost=         changedTrade.cost;
+        trade.company=      changedTrade.company;
+           
+            return true
+        }
+
+    // console.log("trade Value update not succesfulfrom item.js"+trades);
+        return false;
+    }else{
+        return false;
     }
         
 };
