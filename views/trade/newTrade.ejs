@@ -4,13 +4,13 @@
 		<div class="newTrades">
 	<h1> Create New Trade</h1>
 			<!-- <div class="container"> -->
-  <form action="/trades"  method = 'POST' >	
+  <form action="/index"  method = 'POST' >	
   <div class="eachRow">
     <div class="firstColumn">
       <label for="category">Category</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="category" name="category" placeholder="Category">
+      <input type="text" id="category" name="category" placeholder="Category" required>
     </div>
   </div>
   
@@ -19,7 +19,7 @@
       <label for="name">Product Name</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="name" name="name" placeholder="name">
+      <input type="text" id="name" name="name" placeholder="Product Name">
     </div>
   </div>
   <div class="eachRow">
@@ -36,7 +36,7 @@
       <label for="cost">Cost</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="cost" name="cost" placeholder="cost">
+      <input type="text" id="cost" name="cost" placeholder="Cost">
     </div>
   </div>
 
@@ -45,7 +45,7 @@
       <label for="status">Status</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="status" name="status" placeholder="Status">
+      <input type="text" id="status" name="status" placeholder="Status" required>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
       <label for="image">image URL</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="image" name="image" placeholder="image">
+      <input type="text" id="image" name="image" placeholder="Image URL" required>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
       <label for="condition">condition</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="condition" name="condition" placeholder="condition">
+      <input type="text" id="condition" name="condition" placeholder="Condition">
     </div>
   </div>
 
@@ -72,7 +72,7 @@
       <label for="company">company</label>
     </div>
     <div class="secondColumn">
-      <input type="text" id="company" name="company" placeholder="company">
+      <input type="text" id="company" name="company" placeholder="Company">
     </div>
   </div>
  <div class="eachRow">
@@ -80,7 +80,7 @@
       <label for="details">Details</label>
     </div>
     <div class="secondColumn">
-      <textarea id="details" name="details" placeholder="Details"></textarea>
+      <textarea id="details" name="details" placeholder="Product Description"></textarea>
     </div>
   </div>
   <br>

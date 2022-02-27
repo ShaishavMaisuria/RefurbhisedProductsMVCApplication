@@ -151,7 +151,7 @@ exports.deleteByCategoryID=function(category,id){
     // category=deleteTrade.category;
     if(this.containsCategory(category)){
         let index=trades[category].findIndex(trade=>trade.id===id);
-        console.log("Baby shark dudu dududu ********" + index);
+        
         if(index!== -1){
             trades[category].splice(index,1);
             console.log("trades delete" +trades);
@@ -166,8 +166,8 @@ exports.deleteByCategoryID=function(category,id){
         
 };
 //update manually check through inputs and from live form;
-exports.updateByCategoryID=function(changedTrade){
-    let id = "2.2";
+exports.updateByCategoryID=function(changedTrade,id){
+    
 
     if(this.containsCategory(changedTrade.category)){
         let trade=trades[changedTrade.category].find(trade=>trade.id===id);

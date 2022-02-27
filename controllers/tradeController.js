@@ -2,21 +2,15 @@ const model =require('../models/item');
 
 // GET /stories: send all stories main page  //name change
 exports.index=(req,res)=>{
-
-    
-    // res.send(model.find());
     let trades=model.find();
     console.log(trades);
-    res.render('./trade/trades',{trades});
-    // res.send('send all trades');
+    res.render('./trade/index',{trades});
 };
 
 // Each category trade.html
 exports.show=(req,res,next)=>{
     let id = req.params.id;
     let category= req.params.category;
-    
-    // console.log("id "+id+"category"+category);
     let trade = model.findById(category,id);
     if(trade){
     res.render('./trade/trade',{trade});
@@ -31,15 +25,37 @@ exports.show=(req,res,next)=>{
 // POST /stories: create a new story
 exports.create=(req,res)=>{
 
-    // res.send("create a new story");
-    let story = req.body;
+    let trade = req.body;
     let category='Laptop';
-    model.save(story);
-    
-    // model.updateByCategoryID(story);
-    
-    res.redirect('/trades');
+    model.save(trade);
+    res.redirect('/index');
 };
 
+// PUT /stories: create a new story
+exports.update=(req,res,next)=>{
 
+    let updatedTrade = req.body;
+    let id = "2.2";
+   if( model.updateByCategoryID(updatedTrade,id)){
+    res.redirect('/index');
+} else{
+    let err= new Error("No trade was found that could be delete with id"+id);
+    err.status=404;
+    next(err);
+}
+};
+// POST /stories: create a new story
+exports.delete=(req,res,next)=>{
+
+    let category='Laptop';
+    let id = "2.2";
+   if( model.deleteByCategoryID(category,id)){
+    res.redirect('/index');
+   } else{
+       let err= new Error("No trade was found that could be delete with id"+id);
+       err.status=404;
+       next(err);
+   }
+    
+};
 

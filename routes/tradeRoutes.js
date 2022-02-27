@@ -11,4 +11,8 @@ router.get('/:category/:id',controller.show);
 // post /trades: create new trade Request coming from submitting the new trade form
 
 router.post('/',controller.create);
+
+router.put('/:category/:id',controller.update);
+
+router.delete('/:category/:id',controller.delete);
 module.exports=router;
