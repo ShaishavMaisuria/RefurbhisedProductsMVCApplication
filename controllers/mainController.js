@@ -18,6 +18,6 @@ exports.newTrade = (req,res)=>{
 
     res.render('./trade/newTrade');
 
-    // res.send('send all trades');
 };
+
 

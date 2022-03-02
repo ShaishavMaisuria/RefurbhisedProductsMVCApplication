@@ -119,7 +119,7 @@ exports.findById=(category,id)=> trades[category].find(trade=>trade.id===id);
 exports.containsCategory=(category)=>{
   
     for(let val in trades){
-        console.log("value inside the looop "+val + " trades.length "+trades.category);
+        // console.log("value inside the loop "+val + " trades.length "+trades.category);
         if (val === category){
             return true;
         }
@@ -128,7 +128,6 @@ exports.containsCategory=(category)=>{
 }
 exports.save=function(trade){
 
-    // console.log('flag'+flag(trade.category));
     if(this.containsCategory(trade.category)){
     trade.id=uuidv4();
     trade.createdOn=DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
@@ -136,13 +135,13 @@ exports.save=function(trade){
     
     productList.push(trade);
     // trades[trade.category].push(trade);
-    console.log("trade Value from item.js"+trades.Laptop);
+    // console.log("trade Value from item.js"+trades.Laptop);
         
     }else{
         trade.id=uuidv4();
         trade.createdOn=DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
         trades[trade.category]=[trade];
-        console.log("trade Value from item.js"+trades);
+        
     }
         
 };
@@ -154,7 +153,7 @@ exports.deleteByCategoryID=function(category,id){
         
         if(index!== -1){
             trades[category].splice(index,1);
-            console.log("trades delete" +trades);
+            // console.log("trades delete" +trades);
             return true
         }
 

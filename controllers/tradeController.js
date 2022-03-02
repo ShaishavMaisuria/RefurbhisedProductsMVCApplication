@@ -1,9 +1,9 @@
 const model =require('../models/item');
 
-// GET /stories: send all stories main page  //name change
+// GET /stories: send all stories main page of trades //name change
 exports.index=(req,res)=>{
     let trades=model.find();
-    console.log(trades);
+    // console.log(trades);c
     res.render('./trade/index',{trades});
 };
 
@@ -39,7 +39,7 @@ exports.update=(req,res,next)=>{
    if( model.updateByCategoryID(updatedTrade,id)){
     res.redirect('/index');
 } else{
-    let err= new Error("No trade was found that could be delete with id"+id);
+    let err= new Error("No trade was found that could be updates with id"+id);
     err.status=404;
     next(err);
 }
