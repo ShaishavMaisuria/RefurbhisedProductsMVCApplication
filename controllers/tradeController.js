@@ -3,7 +3,7 @@ const model =require('../models/item');
 // GET /trades: send all stories main page of trades //name change
 exports.index=(req,res)=>{
     let trades=model.find();
-    console.log(trades);
+    // console.log(trades);
     res.render('./trade/index',{trades});
 
 };
@@ -31,18 +31,15 @@ exports.create=(req,res)=>{
     let category='Laptop';
     model.save(trade);
     res.redirect('/trades');
-    console.log("trades................"+trade)
+    // console.log("trades................"+trade)
 };
 // this method is used to edit the object retrived from id and category
 exports.edit=(req,res,next)=>{
 
     let category=req.params.category;
     let id = req.params.id;
-    
     let trade=model.findById(category,id);
-    console.log("value********"+trade.category);
-   if(trade ){
-       console.log("hello");
+   if(trade){
     res.render('./trade/edit',{trade});
 } else{
     let err= new Error("No trade was found that could be updates with id"+id);
@@ -58,7 +55,6 @@ exports.update=(req,res,next)=>{
     let updatedTrade = req.body;
     let id = req.params.id;
     let category=req.params.category;
-    // console.log("**********************chnge"+updatedTrade.category);
     // updatedTrade.category=category;
    if( model.updateByCategoryID(updatedTrade,category,id)){
     res.redirect('/trades/'+updatedTrade.category+"/"+id);

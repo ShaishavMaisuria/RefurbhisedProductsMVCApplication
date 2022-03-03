@@ -170,11 +170,8 @@ exports.deleteByCategoryID=function(category,id){
                 
                 delete trades[category];
             }
-            // console.log("trades delete" +trades);
             return true
         }
-
-    console.log("trade Value from item.js"+trades);
         return false;
     }else{
         return false;
