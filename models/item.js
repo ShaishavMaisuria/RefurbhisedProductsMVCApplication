@@ -115,7 +115,7 @@ const trades={
 exports.find=()=> trades;
 
 exports.findById=(category,id)=> trades[category].find(trade=>trade.id===id);
-
+// will be used to check whether given category exists or not
 exports.containsCategory=(category)=>{
   
     for(let val in trades){
@@ -126,6 +126,7 @@ exports.containsCategory=(category)=>{
     }
     return false;
 }
+// saving the function using the newly created trade
 exports.save=function(trade){
 
     if(this.containsCategory(trade.category)){
@@ -145,7 +146,7 @@ exports.save=function(trade){
     }
         
 };
-
+// deleting the function using the id and category required
 exports.deleteByCategoryID=function(category,id){
     // category=deleteTrade.category;
     if(this.containsCategory(category)){
@@ -153,6 +154,10 @@ exports.deleteByCategoryID=function(category,id){
         
         if(index!== -1){
             trades[category].splice(index,1);
+            if(trades[category].length ==0){
+                
+                delete trades[category];
+            }
             // console.log("trades delete" +trades);
             return true
         }
@@ -165,6 +170,7 @@ exports.deleteByCategoryID=function(category,id){
         
 };
 //update manually check through inputs and from live form;
+//update the function using the newly changed trade using current trade id
 exports.updateByCategoryID=function(changedTrade,id){
     
 

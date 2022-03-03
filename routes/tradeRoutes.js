@@ -1,3 +1,4 @@
+// contains all the trade site routes
 const express= require('express');
 const controller= require('../controllers/tradeController');
 const router = express.Router();
@@ -5,12 +6,14 @@ const router = express.Router();
 // GET /trades/ : send all stories
 
 router.get('/',controller.index);
-
+router.post('/',controller.create);
 router.get('/:category/:id',controller.show);
 
+
+router.get('/:category/:id/edit',controller.edit)
 // post /trades: create new trade Request coming from submitting the new trade form
 
-router.post('/',controller.create);
+
 
 router.put('/:category/:id',controller.update);
 

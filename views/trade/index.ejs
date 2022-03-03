@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs')%>
 <article class="tradesMain" >
-   
+   <% if(Object.keys(trades).length>0){ %>
    
  <% for(var i in trades){ %>
 
@@ -13,15 +13,23 @@
                     <img src="/images/<%=trade.image %>" alt="<%= trade.name %>" >
 					<h1><%= trade.name %></h1>
 					<p class="cost">$<%= trade.cost %></p>
-					<p>Some text about the Airpods..</p>
+					<!-- <p>Some text about the Airpods..</p> -->
                     <p class="detailTrade"><a href="/index/<%= i %>/<%= trade.id %>" class="buttonViewDetails" > View Details</a> </p>
                 
                 </div>
         
        <% }); %>
+       
+         
+
 </div>
 </div> 
     <%}%>
+
+    <%} else {%>
+        <p> No categories Left to Display, Add category using New Trades option</p>
+
+        <%   }%>
 </article>
     <%- include('../partials/footer.ejs')%>
 

@@ -11,10 +11,17 @@
             <h3> by <%= trade.company %> </h3>
                 <hr class="hrdesign"> 
             <div class="detail"> <h1> Details</h1> <p> 
-                <%= trade.details %>
+                <%= trade.details %> 
             </p></div>
-
+            <form>
+            <div class="buttonChangeTrade">
+                <button class="buttonEditTrade" type="submit" formmethod="GET" formaction="/index/<%= trade.category %>/<%= trade.id %>/edit">Edit</button>
+            
+                <button class="buttonDeleteTrade" type="submit" formmethod="POST" formaction="/index/<%= trade.category %>/<%= trade.id %>?_method=DELETE"> Delete  </button>
+            </div>
+        </form>
         </div>
+       
 
         <div class="reviewContents">
 
@@ -33,6 +40,7 @@
             <div class="detail">
 
             </div>
+            
         </div>
 
     </div>
