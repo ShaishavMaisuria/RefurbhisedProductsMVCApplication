@@ -2,17 +2,17 @@
 <%- include('../partials/header.ejs')%>
 <article class="newTradesMain"  >
 		<div class="newTrades">
-	<h1> Create New Trade</h1>
+      <h1>Make changes to the trade <%= trade.category%></h1>
 			<!-- <div class="container"> -->
-  <form action="/index/<%= trade.category %>/<%= trade.id%>?_method=PUT"  method = 'POST' >	
+  <form action="/trades/<%= trade.category %>/<%= trade.id%>?_method=PUT"  method = 'POST' >	
   <div class="eachRow">
-    <div class="firstColumn">
-      <label for="category">Category</label>
-    </div>
-    <div class="secondColumn">
-      <input type="text" id="category" name="category" placeholder="Category" required value="<%= trade.category%>">
-    </div>
-  </div>
+      <div class="firstColumn">
+        <label for="category">Category</label>
+      </div>
+      <div class="secondColumn">
+        <input type="text" id="category" name="category" placeholder="Category" required value="<%= trade.category%>" >
+      </div>
+  </div>	
   
   <div class="eachRow">
     <div class="firstColumn">
@@ -49,7 +49,7 @@
     </div>
   </div>
 
-<div class="eachRow">
+  <div class="eachRow">
     <div class="firstColumn">
       <label for="image">image URL</label>
     </div>
@@ -67,7 +67,7 @@
     </div>
   </div>
 
-<div class="eachRow">
+  <div class="eachRow">
     <div class="firstColumn">
       <label for="company">company</label>
     </div>
@@ -75,13 +75,13 @@
       <input type="text" id="company" name="company" placeholder="Company" value="<%= trade.company%>">
     </div>
   </div>
- <div class="eachRow">
-    <div class="firstColumn">
-      <label for="details">Details</label>
-    </div>
-    <div class="secondColumn">
-      <textarea id="details" name="details" placeholder="Product Description" value="<%= trade.details%>"></textarea>
-    </div>
+  <div class="eachRow">
+      <div class="firstColumn">
+        <label for="details">Details</label>
+      </div>
+      <div class="secondColumn">
+        <textarea id="details" name="details" placeholder="Product Description" value="Enter details"> <%= trade.details %> </textarea>
+      </div>
   </div>
   <br>
   <div class="eachRow">

@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
-app.use('/index',tradeRoutes);
+app.use('/trades',tradeRoutes);
 
 // set up routes
 app.use("/",mainRoutes);

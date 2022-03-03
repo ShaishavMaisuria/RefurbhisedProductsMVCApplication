@@ -10,7 +10,7 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'available',
-        image: 'airpodsMax.jpg',
+        image: '/images/airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
@@ -23,7 +23,7 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'beats.png',
+        image: '/images/beats.png',
         author: 'Tony Stark',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'New',
@@ -36,7 +36,7 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'airpodsMax.jpg',
+        image: '/images/airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
@@ -49,7 +49,7 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'beats.png',
+        image: '/images/beats.png',
         author: 'Tony Stark',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'New',
@@ -62,7 +62,7 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'airpodsMax.jpg',
+        image: '/images/airpodsMax.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
@@ -75,7 +75,7 @@ const trades={
         category: 'Headphones',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'beats.png',
+        image: '/images/beats.png',
         author: 'Tony Stark',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'New',
@@ -90,20 +90,32 @@ const trades={
         category: 'Laptop',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'lenovo.jpg',
+        image: '/images/lenovo.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
         cost: '9.99',
         company: 'HP'
-    },
-    {
+    },{
         id:'2.2',
         name: 'ThinkPad',
         category: 'Laptop',
         details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
         status: 'sale',
-        image: 'hp.jpg',
+        image: '/images/lenovo.jpg',
+        author: 'Shaishav  Maisuria',
+        createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
+        condition:'Used',
+        cost: '9.99',
+        company: 'Lenovo'
+    },
+    {
+        id:'2.3',
+        name: 'ThinkPad',
+        category: 'Laptop',
+        details: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+        status: 'sale',
+        image: '/images/hp.jpg',
         author: 'Shaishav  Maisuria',
         createOn: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
         condition:'Used',
@@ -171,16 +183,16 @@ exports.deleteByCategoryID=function(category,id){
 };
 //update manually check through inputs and from live form;
 //update the function using the newly changed trade using current trade id
-exports.updateByCategoryID=function(changedTrade,id){
+exports.updateByCategoryID=function(changedTrade,category,id){
     
 
-    if(this.containsCategory(changedTrade.category)){
-        let trade=trades[changedTrade.category].find(trade=>trade.id===id);
+    if(this.containsCategory(category)){
+        let trade=trades[category].find(trade=>trade.id===id);
 
+       
         if(trade){
-            
+            if(trade.category==changedTrade.category){
         trade.name=      changedTrade.name;
-        trade.category=   changedTrade.category;
         trade.details=    changedTrade.details;
         trade.status=     changedTrade.status;
         trade.image=      changedTrade.image;
@@ -188,7 +200,18 @@ exports.updateByCategoryID=function(changedTrade,id){
         trade.condition=   changedTrade.condition;
         trade.cost=         changedTrade.cost;
         trade.company=      changedTrade.company;
-           
+            }
+            else{
+                changedTrade.id=id;
+                
+                if(this.containsCategory(changedTrade.category)){
+                    let productList=trades[changedTrade.category];
+                    productList.push(changedTrade);                        
+                    }else{
+                        trades[changedTrade.category]=[changedTrade];
+                    }
+                    this.deleteByCategoryID(category,id);
+            }
             return true
         }
 

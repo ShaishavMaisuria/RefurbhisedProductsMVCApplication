@@ -4,7 +4,7 @@
 
         <div class="img-details">
             <div class="tradeImage">
-            <img src="/images/<%= trade.image %>" alt="airpodsMax">
+            <img src="<%= trade.image %>" alt="Product Image">
             </div>
 
             <h1 id="TradeName"> <%= trade.name %></h1>
@@ -15,9 +15,9 @@
             </p></div>
             <form>
             <div class="buttonChangeTrade">
-                <button class="buttonEditTrade" type="submit" formmethod="GET" formaction="/index/<%= trade.category %>/<%= trade.id %>/edit">Edit</button>
+                <button class="buttonEditTrade" type="submit" formmethod="GET" formaction="/trades/<%= trade.category %>/<%= trade.id %>/edit">Edit</button>
             
-                <button class="buttonDeleteTrade" type="submit" formmethod="POST" formaction="/index/<%= trade.category %>/<%= trade.id %>?_method=DELETE"> Delete  </button>
+                <button class="buttonDeleteTrade" type="submit" formmethod="POST" formaction="/trades/<%= trade.category %>/<%= trade.id %>?_method=DELETE"> Delete  </button>
             </div>
         </form>
         </div>
@@ -30,8 +30,8 @@
                 <br>
                 <br>
                 <div class="buttonGrid">
-                    <a href="/index" class="buttonReviewTrade"> Trade it </a>
-                    <a href="/index" class="buttonReviewRate"> Rate it </a>
+                    <a href="/trades" class="buttonReviewTrade"> Trade it </a>
+                    <a href="/trades" class="buttonReviewRate"> Rate it </a>
                 </div>
                 <br>
                 <br>

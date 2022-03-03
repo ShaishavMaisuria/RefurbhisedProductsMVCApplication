@@ -2,10 +2,13 @@
 const express= require('express');
 const mainController= require('../controllers/mainController');
 const mainRouter = express.Router();
+
 // prefix /
 mainRouter.get('/',mainController.home);
+
 //about page 
 mainRouter.get("/about",mainController.about);
+
 //contact page
 mainRouter.get("/contact",mainController.contact);
 

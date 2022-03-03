@@ -9,7 +9,7 @@ exports.index=(req,res)=>{
 };
 
 // Each category trade.html, basically show all the trades inside the list
-exports.show=(req,res,next)=>{
+exports.showEachTrade=(req,res,next)=>{
     let id = req.params.id;
     let category= req.params.category;
     let trade = model.findById(category,id);
@@ -30,10 +30,10 @@ exports.create=(req,res)=>{
     let trade = req.body;
     let category='Laptop';
     model.save(trade);
-    res.redirect('/index');
+    res.redirect('/trades');
     console.log("trades................"+trade)
 };
-
+// this method is used to edit the object retrived from id and category
 exports.edit=(req,res,next)=>{
 
     let category=req.params.category;
@@ -50,7 +50,6 @@ exports.edit=(req,res,next)=>{
     next(err);
 }
 
-// res.send("Hello");
 };
 
 //PUT: update the trade using id and changed id obtained from the trade
@@ -58,11 +57,13 @@ exports.update=(req,res,next)=>{
 
     let updatedTrade = req.body;
     let id = req.params.id;
-    let category=updatedTrade.category;
-   if( model.updateByCategoryID(updatedTrade,id)){
-    res.redirect('/index/'+category+"/"+id);
+    let category=req.params.category;
+    // console.log("**********************chnge"+updatedTrade.category);
+    // updatedTrade.category=category;
+   if( model.updateByCategoryID(updatedTrade,category,id)){
+    res.redirect('/trades/'+updatedTrade.category+"/"+id);
 } else{
-    let err= new Error("No trade was found that could be updates with id"+id);
+    let err= new Error("No trade was found that could be updates with id "+id+" category "+category);
     err.status=404;
     next(err);
 }
@@ -73,7 +74,7 @@ exports.delete=(req,res,next)=>{
     let id = req.params.id;
     let category=req.params.category;
    if( model.deleteByCategoryID(category,id)){
-    res.redirect('/index');
+    res.redirect('/trades');
    } else{
        let err= new Error("No trade was found that could be delete with id"+id);
        err.status=404;

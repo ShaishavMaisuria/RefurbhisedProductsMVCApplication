@@ -270,7 +270,7 @@ svg{
 }
 .cardView img{
   height: 300px;
-  max-width:100%;
+  width:300px;
 }
 .cost {
   color: grey;
@@ -479,7 +479,7 @@ svg{
   align-content: center;
   text-align: center;
 }
-input[type=text], select, textarea {
+input[type=text], select, textarea ,input[type=url] {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -509,6 +509,7 @@ input[type=submit]:hover
   background-color: white;
   color:black;
 }
+
 
 .firstColumn{
   float: left;
