@@ -17,7 +17,13 @@ exports.showEachTrade=(req,res,next)=>{
     res.render('./trade/trade',{trade});
     // console.log("trades................"+trade)
     } else{
-        let err = new Error('Cannot find a trade with id '+id);
+       
+        let err = ""
+        if(trade===undefined){
+         err = new Error('Cannot find a trade with id '+id);
+        }else{
+             err = new Error('Cannot find a trade with category '+category); 
+        }
         err.status=404;
         next(err);
     }
@@ -42,7 +48,13 @@ exports.edit=(req,res,next)=>{
    if(trade){
     res.render('./trade/edit',{trade});
 } else{
-    let err= new Error("No trade was found that could be updates with id"+id);
+   
+    let err = ""
+    if(trade===undefined){
+     err = new Error('Cannot find a trade with id '+id);
+    }else{
+         err = new Error('Cannot find a trade with category '+category); 
+    }
     err.status=404;
     next(err);
 }
@@ -56,10 +68,16 @@ exports.update=(req,res,next)=>{
     let id = req.params.id;
     let category=req.params.category;
     // updatedTrade.category=category;
-   if( model.updateByCategoryID(updatedTrade,category,id)){
+    let trade=model.updateByCategoryID(updatedTrade,category,id)
+   if(trade ){
     res.redirect('/trades/'+updatedTrade.category+"/"+id);
 } else{
-    let err= new Error("No trade was found that could be updates with id "+id+" category "+category);
+    let err = ""
+    if(trade===undefined){
+     err = new Error('Cannot find a trade with id '+id);
+    }else{
+         err = new Error('Cannot find a trade with category '+category); 
+    }
     err.status=404;
     next(err);
 }
@@ -69,11 +87,17 @@ exports.delete=(req,res,next)=>{
 
     let id = req.params.id;
     let category=req.params.category;
-   if( model.deleteByCategoryID(category,id)){
+    let trade= model.deleteByCategoryID(category,id)
+   if(trade){
     res.redirect('/trades');
    } else{
-       let err= new Error("No trade was found that could be delete with id"+id);
-       err.status=404;
+    let err = ""
+    if(trade===undefined){
+     err = new Error('Cannot find a trade with id '+id);
+    }else{
+         err = new Error('Cannot find a trade with category '+category); 
+    }
+     err.status=404;
        next(err);
    }
     

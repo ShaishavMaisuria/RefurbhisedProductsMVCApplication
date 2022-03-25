@@ -29,7 +29,7 @@ app.use("/",mainRoutes);
 
 app.use((req,res,next)=>{
 
-    let err = new Error('The server cannot locate'+req.url);
+    let err = new Error('The server cannot locate '+req.url);
     err.status=404;
     next(err);
 });
